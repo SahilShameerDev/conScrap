@@ -1,0 +1,12 @@
+/* Placeholder for hero background - this would be replaced with actual hero-bg.jpg */
+.hero-bg-placeholder {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+}
+
+/* Placeholder for logo - this would be replaced with actual logo.jpg */
+.logo-placeholder {
+  background: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}

@@ -1,0 +1,227 @@
+.about {
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: var(--gray-900);
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.highlight {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary-color);
+}
+
+.highlight:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlightIcon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.highlightIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.highlightText h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--gray-800);
+}
+
+.highlightText p {
+  color: var(--gray-600);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.aboutImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageCard {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+
+.circularEconomy {
+  margin-bottom: 2rem;
+}
+
+.circularGraphic {
+  width: 200px;
+  height: 200px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: var(--light-color);
+  border-radius: 12px;
+  min-width: 80px;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  text-align: center;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 768px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .description {
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .highlight {
+    padding: 1.25rem;
+  }
+  
+  .highlight:hover {
+    transform: none;
+  }
+  
+  .highlightIcon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .highlightIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .highlightText h3 {
+    font-size: 1.1rem;
+  }
+  
+  .highlightText p {
+    font-size: 0.95rem;
+  }
+  
+  .imageCard {
+    padding: 1.5rem;
+  }
+  
+  .circularGraphic {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .statItem {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .highlights {
+    gap: 1rem;
+  }
+  
+  .highlight {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .highlightIcon {
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+  
+  .circularGraphic {
+    width: 120px;
+    height: 120px;
+  }
+}

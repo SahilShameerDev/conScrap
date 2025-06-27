@@ -1,0 +1,256 @@
+.whyChooseUs {
+  position: relative;
+  padding: 4rem 0;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.whyChooseUs::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 100%);
+  pointer-events: none;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.reasonsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.reasonCard {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid var(--gray-200);
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.reasonCard:nth-child(1) { animation-delay: 0.1s; }
+.reasonCard:nth-child(2) { animation-delay: 0.2s; }
+.reasonCard:nth-child(3) { animation-delay: 0.3s; }
+.reasonCard:nth-child(4) { animation-delay: 0.4s; }
+
+.reasonCard:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gray-300);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.reasonIcon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--gray-800), var(--gray-600));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.reasonCard:hover .reasonIcon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
+}
+
+.reasonIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.cardNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-400);
+  opacity: 0.7;
+}
+
+.reasonTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+  line-height: 1.4;
+}
+
+.reasonDescription {
+  color: var(--gray-600);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.bottomCta {
+  background: var(--gray-50);
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bottomCta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 100%);
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaContent h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+}
+
+.ctaContent p {
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  
+  .reasonsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .reasonCard {
+    padding: 1.5rem;
+  }
+  
+  .reasonIcon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .reasonIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .cardNumber {
+    font-size: 1.2rem;
+  }
+  
+  .reasonTitle {
+    font-size: 1.1rem;
+  }
+  
+  .reasonDescription {
+    font-size: 0.9rem;
+  }
+  
+  .bottomCta {
+    padding: 2rem;
+  }
+  
+  .ctaContent h3 {
+    font-size: 1.5rem;
+  }
+  
+  .ctaContent p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .reasonCard {
+    padding: 1.25rem;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .reasonIcon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .reasonIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .bottomCta {
+    padding: 1.5rem;
+  }
+  
+  .ctaContent h3 {
+    font-size: 1.3rem;
+  }
+}

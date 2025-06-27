@@ -1,0 +1,343 @@
+.impact {
+  background: linear-gradient(135deg, var(--white) 0%, var(--light-color) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.impact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M40 40L20 20L40 0L60 20L40 40ZM40 40L60 60L40 80L20 60L40 40Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.impactCard {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.impactCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.impactCard:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-lg);
+}
+
+.impactCard:hover::before {
+  transform: scaleX(1);
+}
+
+.impactIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--white);
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
+  transition: all 0.3s ease;
+}
+
+.impactCard:hover .impactIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.impactIcon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.impactNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.impactLabel {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 0.75rem;
+}
+
+.impactDescription {
+  color: var(--gray-600);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.benefitsSection {
+  margin-bottom: 4rem;
+}
+
+.benefitsTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--gray-800);
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.benefitCard {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.benefitCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.benefitIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.benefitTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 1rem;
+}
+
+.benefitDescription {
+  color: var(--gray-600);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.testimonial {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 20px;
+  padding: 3rem;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 2rem;
+  font-size: 8rem;
+  font-weight: 700;
+  opacity: 0.1;
+  line-height: 1;
+  font-family: serif;
+}
+
+.testimonialContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authorInfo strong {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.authorInfo span {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  
+  .impactGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .impactCard {
+    padding: 2rem;
+  }
+  
+  .impactIcon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .impactIcon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .impactNumber {
+    font-size: 2.5rem;
+  }
+  
+  .impactLabel {
+    font-size: 1.1rem;
+  }
+  
+  .benefitsTitle {
+    font-size: 1.6rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .benefitCard {
+    padding: 1.5rem;
+  }
+  
+  .benefitIcon {
+    font-size: 2.5rem;
+  }
+  
+  .benefitTitle {
+    font-size: 1.2rem;
+  }
+  
+  .testimonial {
+    padding: 2rem;
+  }
+  
+  .quote {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .impactGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .impactCard {
+    padding: 1.5rem;
+  }
+  
+  .impactNumber {
+    font-size: 2rem;
+  }
+  
+  .benefitsTitle {
+    font-size: 1.4rem;
+  }
+  
+  .testimonial {
+    padding: 1.5rem;
+  }
+  
+  .testimonial::before {
+    font-size: 6rem;
+    top: -15px;
+    left: 1rem;
+  }
+  
+  .quote {
+    font-size: 1rem;
+  }
+  
+  .author {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
