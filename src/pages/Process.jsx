@@ -11,7 +11,8 @@ const Process = () => {
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H17V17H7V15Z"/>
         </svg>
-      )
+      ),
+      image: "/demolish.jpg"
     },
     {
       number: "02", 
@@ -21,7 +22,8 @@ const Process = () => {
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M18 18.5C18.83 18.5 19.5 17.83 19.5 17S18.83 15.5 18 15.5 16.5 16.17 16.5 17 17.17 18.5 18 18.5ZM19.5 9.5H17V12H21.46L19.5 9.5ZM6 18.5C6.83 18.5 7.5 17.83 7.5 17S6.83 15.5 6 15.5 4.5 16.17 4.5 17 5.17 18.5 6 18.5ZM20 8L23 12V17H21C21 18.66 19.66 20 18 20S15 18.66 15 17H9C9 18.66 7.66 20 6 20S3 18.66 3 17H1V15C1 13.89 1.89 13 3 13H4V8C4 6.89 4.89 6 6 6H17C18.11 6 19 6.89 19 8H20Z"/>
         </svg>
-      )
+      ),
+      image: "/collectioln.png"
     },
     {
       number: "03",
@@ -31,7 +33,8 @@ const Process = () => {
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM17 13H13V17H11V13H7V11H11V7H13V11H17V13Z"/>
         </svg>
-      )
+      ),
+      image: "/crushing.jpg"
     },
     {
       number: "04",
@@ -41,7 +44,8 @@ const Process = () => {
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/>
         </svg>
-      )
+      ),
+      image: "/recycle.jpg"
     }
   ]
 
@@ -57,7 +61,8 @@ const Process = () => {
         
         <div className={styles.processFlow}>
           {processSteps.map((step, index) => (
-            <div key={index} className={styles.processStep}>
+            <div key={index} className={styles.processStep} style={{backgroundImage: `url(${step.image})`}}>
+              <div className={styles.stepOverlay}></div>
               <div className={styles.stepNumber}>{step.number}</div>
               <div className={styles.stepIcon}>
                 {step.icon}

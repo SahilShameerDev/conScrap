@@ -1,6 +1,7 @@
 .process {
   position: relative;
   overflow: hidden;
+  
 }
 
 .header {
@@ -31,7 +32,9 @@
 }
 
 .processStep {
-  background: var(--white);
+  background-color: var(--white);
+  background-size: cover;
+  background-position: center;
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
@@ -40,6 +43,18 @@
   position: relative;
   animation: fadeInUp 0.8s ease-out;
   animation-fill-mode: both;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.stepOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
 }
 
 .processStep:nth-child(1) { animation-delay: 0.1s; }
@@ -67,7 +82,9 @@
   color: var(--white);
   font-weight: 700;
   font-size: 1.1rem;
-  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+  box-shadow: 0 4px 15px rgba(112, 112, 112, 0.4);
+  z-index: 2;
+  margin-top: 18px;
 }
 
 .stepIcon {
@@ -81,6 +98,8 @@
   margin: 2rem auto 1.5rem;
   color: var(--primary-color);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .processStep:hover .stepIcon {
@@ -98,13 +117,17 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: var(--gray-800);
+  color: var(--white);
+  position: relative;
+  z-index: 2;
 }
 
 .stepDescription {
-  color: var(--gray-600);
+  color: var(--white);
   line-height: 1.6;
   font-size: 0.95rem;
+  position: relative;
+  z-index: 2;
 }
 
 .stepConnector {

@@ -49,22 +49,30 @@ const Impact = () => {
     {
       title: "Environmental Protection",
       description: "Reducing landfill waste and protecting Kerala's natural beauty",
-      icon: "🌱"
+      icon: (
+        <img style={{width:'60px'}} src="/leaf.png" alt="" />
+      )
     },
     {
       title: "Economic Growth", 
       description: "Creating jobs and supporting local circular economy",
-      icon: "💼"
+      icon: (
+        <img style={{width:'60px'}} src="/case.png" alt="" />
+      )
     },
     {
       title: "Resource Conservation",
       description: "Preserving natural resources by reusing construction materials",
-      icon: "♻️"
+      icon: (
+        <img style={{width:'60px'}} src="/recycle.png" alt="" />
+      )
     },
     {
       title: "Community Health",
       description: "Reducing pollution and improving air quality in Kerala",
-      icon: "🏥"
+      icon: (
+        <img style={{width:'60px'}} src="/health.png" alt="" />
+      )
     }
   ]
 

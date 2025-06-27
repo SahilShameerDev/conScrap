@@ -72,7 +72,7 @@ const WhyChooseUs = () => {
           <div className={styles.ctaContent}>
             <h3>Ready to make a sustainable choice?</h3>
             <p>Join the circular economy revolution with Conscrap's comprehensive waste management solutions.</p>
-            <button className="btn btn-primary">Get Started Today</button>
+            <a href="#contact"><button className="btn btn-primary">Get Started Today</button></a>
           </div>
         </div>
       </div>
