@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Impact.module.css'
 
 const Impact = () => {
@@ -76,6 +76,54 @@ const Impact = () => {
     }
   ]
 
+  const testimonials = [
+    {
+      quote: "Conscrap has revolutionized how we handle construction waste in our projects. Not only are we saving costs, but we're also contributing to a cleaner Kerala. Their recycled materials are of excellent quality.",
+      author: "Rajesh Kumar",
+      position: "Construction Manager, Kochi",
+      company: "Metro Construction Ltd."
+    },
+    {
+      quote: "Working with Conscrap has been a game-changer for our sustainability goals. They've helped us achieve zero waste to landfill on three major projects. Highly professional team!",
+      author: "Priya Nair",
+      position: "Project Director",
+      company: "Green Build Solutions"
+    },
+    {
+      quote: "The quality of recycled aggregates from Conscrap exceeds our expectations. We've saved over ₹15 lakhs on our last project while meeting all environmental compliance requirements.",
+      author: "Mohammed Ashraf",
+      position: "Site Engineer",
+      company: "Skyline Developers"
+    },
+    {
+      quote: "Conscrap's waste management solutions are top-notch. Their team is responsive, professional, and truly committed to environmental sustainability. A reliable partner for any construction project.",
+      author: "Dr. Sunitha Menon",
+      position: "Environmental Consultant",
+      company: "EcoVision Kerala"
+    }
+  ]
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [testimonials.length])
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  const goToTestimonial = (index) => {
+    setCurrentTestimonial(index)
+  }
+
   return (
     <section id="impact" className={`${styles.impact} section`}>
       <div className="container">
@@ -112,19 +160,56 @@ const Impact = () => {
           </div>
         </div>
         
-        <div className={styles.testimonial}>
-          <div className={styles.testimonialContent}>
-            <div className={styles.quote}>
-              "Conscrap has revolutionized how we handle construction waste in our projects. 
-              Not only are we saving costs, but we're also contributing to a cleaner Kerala. 
-              Their recycled materials are of excellent quality."
-            </div>
-            <div className={styles.author}>
-              <div className={styles.authorInfo}>
-                <strong>Rajesh Kumar</strong>
-                <span>Construction Manager, Kochi</span>
+        <div className={styles.testimonialSection}>
+          <h3 className={styles.testimonialsTitle}>What Our Clients Say</h3>
+          <div className={styles.testimonialCarousel}>
+            <button 
+              className={`${styles.carouselBtn} ${styles.prevBtn}`}
+              onClick={prevTestimonial}
+              aria-label="Previous testimonial"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.41 16.59L10.83 12L15.41 7.41L14 6L8 12L14 18L15.41 16.59Z"/>
+              </svg>
+            </button>
+            
+            <div className={styles.testimonialWrapper}>
+              <div className={styles.testimonial}>
+                <div className={styles.testimonialContent}>
+                  <div className={styles.quote}>
+                    "{testimonials[currentTestimonial].quote}"
+                  </div>
+                  <div className={styles.author}>
+                    <div className={styles.authorInfo}>
+                      <strong>{testimonials[currentTestimonial].author}</strong>
+                      <span>{testimonials[currentTestimonial].position}</span>
+                      <span className={styles.company}>{testimonials[currentTestimonial].company}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            
+            <button 
+              className={`${styles.carouselBtn} ${styles.nextBtn}`}
+              onClick={nextTestimonial}
+              aria-label="Next testimonial"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div className={styles.carouselDots}>
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.dot} ${index === currentTestimonial ? styles.activeDot : ''}`}
+                onClick={() => goToTestimonial(index)}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>
