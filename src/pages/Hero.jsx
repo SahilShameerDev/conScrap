@@ -17,7 +17,7 @@ const Hero = () => {
   }
 
 return (
-    <section id="home" className={styles.hero}>
+    <section id="home" className={styles.hero} style={{ color: 'white' }}>
         <div className={styles.heroBackground}>
             <img 
                 src="/hero_bg.jpg" 
@@ -64,7 +64,7 @@ return (
                         <button className="btn btn-primary" onClick={scrollToContact}>
                             Get Free Quote
                         </button>
-                        <button className="btn btn-secondary" onClick={scrollToAbout}>
+                        <button className="btn btn-primary" onClick={scrollToAbout}>
                             Learn More
                         </button>
                     </div>
