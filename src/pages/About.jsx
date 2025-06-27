@@ -91,7 +91,7 @@ const About = () => {
                   <span className={styles.statLabel}>Compliance</span>
                 </div>
                 <div className={styles.statItem}>
-                  <span className={styles.statValue}>India</span>
+                  <span className={styles.statValue}>Kerala</span>
                   <span className={styles.statLabel}>Wide Coverage</span>
                 </div>
               </div>

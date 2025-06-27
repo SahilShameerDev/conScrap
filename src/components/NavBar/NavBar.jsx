@@ -31,12 +31,9 @@ const NavBar = () => {
         <div className={styles.logo}>
           <div className={styles.logoImage}>
             {/* Placeholder for logo.jpg - replace with actual image */}
-            <div className={styles.logoPlaceholder}></div>
+            <img className='logoImg' src="/logo.png" alt="Conscrap Logo" />
           </div>
-          <div className={styles.logoText}>
-            <h2>Conscrap</h2>
-            <span className={styles.tagline}>Build • Unbuild • Rebuild</span>
-          </div>
+          
         </div>
         
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.active : ''}`}>

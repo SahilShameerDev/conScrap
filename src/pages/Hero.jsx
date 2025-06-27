@@ -16,64 +16,70 @@ const Hero = () => {
     }
   }
 
-  return (
+return (
     <section id="home" className={styles.hero}>
-      <div className={styles.heroBackground}>
-        {/* Placeholder for hero-bg.jpg - replace with actual image */}
-        <div className={styles.backgroundPlaceholder}></div>
-        <div className={styles.overlay}></div>
-      </div>
-      
-      <div className="container">
-        <div className={styles.heroContent}>
-          <div className={styles.heroText}>
-            <div className={styles.heroSlogan}>
-              <span className={styles.sloganPart}>Build.</span>
-              <span className={styles.sloganPart}>Unbuild.</span>
-              <span className={styles.sloganPart}>Rebuild.</span>
-            </div>
-            <h1 className={styles.heroTitle}>
-              Transforming <span className={styles.highlight}>Construction Waste</span> 
-              <br />Into Sustainable Solutions
-            </h1>
-            <p className={styles.heroSubtitle}>
-              We collect, transport, and recycle construction waste across India, 
-              turning demolished building materials into valuable resources for new construction projects.
-            </p>
-            <div className={styles.heroStats}>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>5,000+</span>
-                <span className={styles.statLabel}>Tons Recycled</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>95%</span>
-                <span className={styles.statLabel}>Waste Diverted</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>200+</span>
-                <span className={styles.statLabel}>Projects Completed</span>
-              </div>
-            </div>
-            <div className={styles.heroActions}>
-              <button className="btn btn-primary" onClick={scrollToContact}>
-                Get Free Quote
-              </button>
-              <button className="btn btn-secondary" onClick={scrollToAbout}>
-                Learn More
-              </button>
-            </div>
-          </div>
+        <div className={styles.heroBackground}>
+            <img 
+                src="/hero_bg.jpg" 
+                className='heroBg' 
+                alt="" 
+                srcset="" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+            />
+            
+            <div className={styles.overlay}></div>
         </div>
-      </div>
-      
-      <div className={styles.scrollIndicator}>
-        <div className={styles.mouse}>
-          <div className={styles.wheel}></div>
+        
+        <div className="container">
+            <div className={styles.heroContent}>
+                <div className={styles.heroText}>
+                    <div className={styles.heroSlogan}>
+                        <span className={styles.sloganPart}>Build.</span>
+                        <span className={styles.sloganPart}>Unbuild.</span>
+                        <span className={styles.sloganPart}>Rebuild.</span>
+                    </div>
+                    <h1 className={styles.heroTitle}>
+                        Transforming <span className={styles.highlight}>Construction Waste</span> 
+                        <br />Into Sustainable Solutions
+                    </h1>
+                    <p className={styles.heroSubtitle}>
+                        We collect, transport, and recycle construction waste across India, 
+                        turning demolished building materials into valuable resources for new construction projects.
+                    </p>
+                    <div className={styles.heroStats}>
+                        <div className={styles.stat}>
+                            <span className={styles.statNumber}>5,000+</span>
+                            <span className={styles.statLabel}>Tons Recycled</span>
+                        </div>
+                        <div className={styles.stat}>
+                            <span className={styles.statNumber}>95%</span>
+                            <span className={styles.statLabel}>Waste Diverted</span>
+                        </div>
+                        <div className={styles.stat}>
+                            <span className={styles.statNumber}>200+</span>
+                            <span className={styles.statLabel}>Projects Completed</span>
+                        </div>
+                    </div>
+                    <div className={styles.heroActions}>
+                        <button className="btn btn-primary" onClick={scrollToContact}>
+                            Get Free Quote
+                        </button>
+                        <button className="btn btn-secondary" onClick={scrollToAbout}>
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span>Scroll to explore</span>
-      </div>
+        
+        <div className={styles.scrollIndicator}>
+            <div className={styles.mouse}>
+                <div className={styles.wheel}></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
     </section>
-  )
+)
 }
 
 export default Hero
