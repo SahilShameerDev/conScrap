@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import styles from './Impact.module.css'
 
 const Impact = () => {
-  const impactData = [
+  const [isVisible, setIsVisible] = useState(false)
+  const [animatedNumbers, setAnimatedNumbers] = useState({})
+  const sectionRef = useRef(null)
+  
+  const impactData = useMemo(() => [
     {
       number: "2,500+",
       label: "Tons of Waste Recycled",
@@ -46,7 +50,7 @@ const Impact = () => {
         </svg>
       )
     }
-  ]
+  ], [])
 
   const benefits = [
     {
@@ -108,6 +112,88 @@ const Impact = () => {
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
+  // Animation function for counting numbers
+  const animateNumber = useCallback((finalValue, duration = 2000) => {
+    // Extract numeric part and non-numeric parts
+    const numericMatch = finalValue.match(/[\d,]+/)
+    if (!numericMatch) {
+      setAnimatedNumbers(prev => ({ ...prev, [finalValue]: finalValue }))
+      return Promise.resolve(finalValue)
+    }
+    
+    const numericPart = numericMatch[0].replace(/,/g, '')
+    const numericValue = parseInt(numericPart, 10)
+    const beforeNumeric = finalValue.substring(0, finalValue.indexOf(numericMatch[0]))
+    const afterNumeric = finalValue.substring(finalValue.indexOf(numericMatch[0]) + numericMatch[0].length)
+    
+    return new Promise((resolve) => {
+      let startTime = null
+      const animate = (currentTime) => {
+        if (!startTime) startTime = currentTime
+        const progress = Math.min((currentTime - startTime) / duration, 1)
+        
+        // Use easing function for smoother animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+        const currentValue = Math.floor(numericValue * easeOutQuart)
+        
+        // Format the number with commas if original had them
+        const formattedValue = numericMatch[0].includes(',') 
+          ? currentValue.toLocaleString() 
+          : currentValue.toString()
+        
+        const displayValue = beforeNumeric + formattedValue + afterNumeric
+        
+        setAnimatedNumbers(prev => ({
+          ...prev,
+          [finalValue]: displayValue
+        }))
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate)
+        } else {
+          setAnimatedNumbers(prev => ({
+            ...prev,
+            [finalValue]: finalValue
+          }))
+          resolve(finalValue)
+        }
+      }
+      requestAnimationFrame(animate)
+    })
+  }, [])
+
+  // Intersection Observer to trigger animations
+  useEffect(() => {
+    const currentRef = sectionRef.current
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true)
+            
+            // Start animating all numbers
+            impactData.forEach((item, index) => {
+              setTimeout(() => {
+                animateNumber(item.number)
+              }, index * 200) // Stagger the animations
+            })
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    if (currentRef) {
+      observer.observe(currentRef)
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef)
+      }
+    }
+  }, [isVisible, impactData, animateNumber])
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
@@ -128,7 +214,7 @@ const Impact = () => {
   }
 
   return (
-    <section id="impact" className={`${styles.impact} section`}>
+    <section id="impact" className={`${styles.impact} section`} ref={sectionRef}>
       <div className="container">
         <div className={styles.header}>
           <h2 className={styles.sectionTitle}>Our <span className="text-primary">Impact</span></h2>
@@ -143,7 +229,9 @@ const Impact = () => {
               <div className={styles.impactIcon}>
                 {item.icon}
               </div>
-              <div className={styles.impactNumber}>{item.number}</div>
+              <div className={styles.impactNumber}>
+                {animatedNumbers[item.number] || (isVisible ? item.number : '0')}
+              </div>
               <h3 className={styles.impactLabel}>{item.label}</h3>
               <p className={styles.impactDescription}>{item.description}</p>
             </div>

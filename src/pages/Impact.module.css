@@ -107,6 +107,8 @@
   color: var(--primary-color);
   margin-bottom: 0.5rem;
   line-height: 1;
+  transition: all 0.1s ease-in-out;
+  font-variant-numeric: tabular-nums;
 }
 
 .impactLabel {

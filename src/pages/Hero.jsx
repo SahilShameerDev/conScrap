@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Hero.module.css'
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    // Trigger animation after component mounts
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   const scrollToContact = () => {
     const element = document.getElementById('contact')
     if (element) {
@@ -17,7 +28,7 @@ const Hero = () => {
   }
 
 return (
-    <section id="home" className={styles.hero} style={{ color: 'white' }}>
+    <section id="home" className={`${styles.hero} ${isVisible ? styles.revealed : ''}`} style={{ color: 'white' }}>
         <div className={styles.heroBackground}>
             <img 
                 src="/hero_bg.jpg" 

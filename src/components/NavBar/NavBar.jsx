@@ -4,6 +4,7 @@ import styles from './NavBar.module.css'
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isRevealed, setIsRevealed] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,6 +12,15 @@ const NavBar = () => {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    // Trigger navbar reveal animation after component mounts
+    const timer = setTimeout(() => {
+      setIsRevealed(true)
+    }, 200)
+
+    return () => clearTimeout(timer)
   }, [])
 
   const toggleMenu = () => {
@@ -26,7 +36,7 @@ const NavBar = () => {
   }
 
   return (
-    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isRevealed ? styles.revealed : ''}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <div className={styles.logoImage}>

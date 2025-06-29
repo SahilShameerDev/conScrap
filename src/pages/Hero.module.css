@@ -4,6 +4,14 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.hero.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .heroBackground {
@@ -62,6 +70,9 @@
 .heroText {
   max-width: 800px;
   color: var(--white);
+}
+
+.revealed .heroText {
   animation: fadeInUp 1s ease-out;
 }
 
@@ -70,6 +81,12 @@
   gap: 2rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.revealed .heroSlogan {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .sloganPart {
@@ -77,12 +94,17 @@
   font-weight: 900;
   color: var(--white);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  animation: fadeInUp 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.sloganPart:nth-child(1) { animation-delay: 0.2s; }
-.sloganPart:nth-child(2) { animation-delay: 0.4s; }
-.sloganPart:nth-child(3) { animation-delay: 0.6s; }
+.revealed .sloganPart {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.revealed .sloganPart:nth-child(1) { animation-delay: 0.4s; }
+.revealed .sloganPart:nth-child(2) { animation-delay: 0.6s; }
+.revealed .sloganPart:nth-child(3) { animation-delay: 0.8s; }
 
 .heroTitle {
   font-size: 3rem;
@@ -91,6 +113,12 @@
   margin-bottom: 1.5rem;
   color: var(--white);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.revealed .heroTitle {
+  animation: fadeInUp 0.8s ease-out 1s forwards;
 }
 
 .highlight {
@@ -107,12 +135,24 @@
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.revealed .heroSubtitle {
+  animation: fadeInUp 0.8s ease-out 1.2s forwards;
 }
 
 .heroStats {
   display: flex;
   gap: 2rem;
   margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.revealed .heroStats {
+  animation: fadeInUp 0.8s ease-out 1.4s forwards;
 }
 
 .stat {
@@ -143,6 +183,12 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.revealed .heroActions {
+  animation: fadeInUp 0.8s ease-out 1.6s forwards;
 }
 
 .scrollIndicator {
@@ -156,7 +202,11 @@
   gap: 0.5rem;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
-  animation: bounce 2s infinite;
+  opacity: 0;
+}
+
+.revealed .scrollIndicator {
+  animation: fadeInUp 0.8s ease-out 1.8s forwards, bounce 2s infinite 2.6s;
 }
 
 .mouse {
