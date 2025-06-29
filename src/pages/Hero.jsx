@@ -5,6 +5,10 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // Preload the hero background image
+    const img = new Image()
+    img.src = '/hero_bg.jpg'
+    
     // Trigger animation after component mounts
     const timer = setTimeout(() => {
       setIsVisible(true)
